@@ -1,0 +1,44 @@
+package edu.umsl.is3806;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class find12 
+{
+    public static void main(String args[]) throws IOException
+    {
+        System.out.println("Please enter numbers. Zero will terminate "
+                + "the calculation & negatives will be ignored:");
+        BufferedReader br;
+        br = new BufferedReader( new InputStreamReader( System.in ) );
+        String myline = br.readLine();
+        StringTokenizer tokens = new StringTokenizer(myline);
+        
+        int counter = 0;                                                //keeps track of total number of 12s
+        int first = 0;                                                  //will be the first 12 found
+        int last = 0;                                                   //will be the last 12 found
+        int tokencount = tokens.countTokens();                          //how many numbers input by user
+       
+        while(tokens.hasMoreTokens())                                   //while there are more numbers
+        {
+            String temp = tokens.nextToken();                           //temp becomes next number
+            if(Integer.valueOf(temp) == 12)                             //if the numarical value of temp is 12
+            {
+                counter++;                                              //count of 12s increases 1
+                if(counter == 1)                                        //if it's the first 12 found
+                {
+                    first = tokencount - tokens.countTokens();          //subtract total numbers by how many left
+                }
+                else                                                    //for all other 12s found
+                {
+                    last = tokencount - tokens.countTokens();           //subtract total numbers by how many left
+                }
+            }
+        }
+        System.out.println("Your first 12 was entered in at " + first); //print out where the first 12 was
+        System.out.println("Your last 12 was entered in at " + last);   //print out where the last 12 was
+        System.out.println("you have " + counter + " 12s");             //print out how many 12s found
+    }
+}
