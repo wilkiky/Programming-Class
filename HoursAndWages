@@ -1,0 +1,38 @@
+package hoursandwages;
+
+import java.text.NumberFormat;
+import java.util.*;
+
+public class HoursAndWages 
+{
+    public static void main(String[] args) 
+    {
+        double hours, rate, overtime_hours, overtime_pay, pay;
+        
+        Scanner myinputgrabbernabber = new Scanner(System.in);
+        
+        System.out.print("Please enter in your hours worked: ");
+        hours = myinputgrabbernabber.nextInt();
+        System.out.print("Please enter in your hourly wage rate: ");
+        rate = myinputgrabbernabber.nextInt();
+        
+        overtime_pay = rate * 1.5;
+        overtime_hours = hours - 40;
+        
+        Locale mylocale = new Locale ("en","US");
+        NumberFormat nf = NumberFormat.getCurrencyInstance(mylocale);
+        
+       if (hours >= 0 && hours <= 40 && rate >= 0)
+        {
+            pay = hours * rate;
+            System.out.println("You made " + nf.format(pay) + " this week");
+        }
+        else if (overtime_hours > 0 && rate >= 0)
+        {
+            pay = 40 * rate + overtime_hours * overtime_pay;
+            System.out.println("You made " + nf.format(pay) + " this week");
+        }
+        else
+            System.out.println("You're data might be wrong.");
+    }
+}
