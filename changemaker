@@ -1,0 +1,115 @@
+package edu.umsl.is3806;
+
+import java.util.Scanner;
+
+public class changemaker 
+{
+    public static void main(String args[])
+    {
+        int input = 0;
+        int quarter = 0;
+        int nickel = 0;
+        int dime = 0;
+        int penny = 0;
+            
+/*      System.out.println("Enter a number between 1 and 99: ");
+        Scanner myinputgrabbernabber = new Scanner(System.in);
+	      input = myinputgrabbernabber.nextInt();
+*/      
+        while (input < 1 || input > 99)
+        {
+            System.out.println("Enter a number between 1 and 99: ");
+            Scanner myinputgrabbernabber = new Scanner(System.in);
+            while (! myinputgrabbernabber.hasNextInt()) 
+            {
+                myinputgrabbernabber.next();
+                System.out.println("Enter a number between 1 and 99: ");
+            }
+            input = myinputgrabbernabber.nextInt();
+        }
+/*        
+        while (input >= 1)
+        {
+            while (input >= 5)
+            {
+                while (input >= 10)
+                {
+                    while (input >= 25)
+                    {
+                        quarter++;
+                        input = input - 25;
+                    }
+                    dime++;
+                    input = input - 10;
+                }
+                nickel++;
+                input = input - 5;
+            }
+            penny++;
+            input = input - 1;
+        }
+*/
+        while (input >= 25)
+        {
+            quarter++;
+            input = input - 25;
+        }
+        while (input >= 10)
+        {
+            dime++;
+            input = input - 10;
+        }
+        while (input >= 5)
+        {
+            nickel++;
+            input = input - 5;
+        }
+        while (input >= 1)
+        {
+            penny++;
+            input = input -1;
+        }
+/*      if(quarter == 1)
+        {
+            System.out.println(quarter + " quarter");
+        }
+        else
+        {
+            System.out.println(quarter + " quarters");
+        }
+        if (dime == 1)
+        {
+            System.out.println(dime + " dime");
+        }
+        else
+        {
+            System.out.println(dime + " dimes");
+        }
+        if (nickel == 1)
+        {
+            System.out.println(nickel + " nickel");
+        }
+        else
+        {
+            System.out.println(nickel + " nickels");
+        }
+        if (penny == 1)
+        {
+            System.out.println(penny + " penny");
+        }
+        else
+        {
+            System.out.println(penny + " pennies");
+        }
+*/        
+        //Ternary Operator
+        String q = (quarter == 1) ? "quarter" : "quarters";
+        System.out.println(quarter + " " + q);
+        String d = (dime == 1) ? "dime" : "dimes";
+        System.out.println(dime + " " + d);
+        String n = (nickel == 1) ? "nickel" : "nickels";
+        System.out.println(nickel + " " + n);
+        String p = (penny == 1) ? "penny" : "pennies";
+        System.out.println(penny + " " + p);
+    }
+}
