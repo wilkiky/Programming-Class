@@ -15,7 +15,7 @@ public class productnonegatives
         String myline = br.readLine();
         StringTokenizer mytokenizer = new StringTokenizer(myline);
 
-        int counter = 0;                                                //sum of all posative numbers
+        int counter = 1;                                                //sum of all posative numbers
 
         while(mytokenizer.hasMoreTokens())                              //while there are more numbers
         {
@@ -23,10 +23,10 @@ public class productnonegatives
             if(Integer.valueOf(temp) != 0)                              //if the value of the number is not 0
             {
                 if(Integer.valueOf(temp) < 0){}                         //if value of number is less than 0 do nothing
-                else counter = Integer.valueOf(temp) + counter;         //otherwise add the value to counter
+                else counter = Integer.valueOf(temp) * counter;         //otherwise add the value to counter
             }
             else break;                                                 //if number is zero end process
         }
-        System.out.println("The sum of your numbers, is " + counter);   //output of the sum of all numbers
+        System.out.println("The product of your numbers, is " + counter);   //output of the sum of all numbers
     }
 }
