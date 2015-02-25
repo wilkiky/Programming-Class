@@ -1,0 +1,32 @@
+package edu.umsl.is3806;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class productnonegatives 
+{
+    public static void main(String args[]) throws IOException 
+    {
+        System.out.println("Please enter a series of numbers");
+        BufferedReader br;
+        br = new BufferedReader( new InputStreamReader( System.in ) );
+        String myline = br.readLine();
+        StringTokenizer mytokenizer = new StringTokenizer(myline);
+
+        int counter = 0;                                                //sum of all posative numbers
+
+        while(mytokenizer.hasMoreTokens())                              //while there are more numbers
+        {
+            String temp = mytokenizer.nextToken();                      //number entered in by user
+            if(Integer.valueOf(temp) != 0)                              //if the value of the number is not 0
+            {
+                if(Integer.valueOf(temp) < 0){}                         //if value of number is less than 0 do nothing
+                else counter = Integer.valueOf(temp) + counter;         //otherwise add the value to counter
+            }
+            else break;                                                 //if number is zero end process
+        }
+        System.out.println("The sum of your numbers, is " + counter);   //output of the sum of all numbers
+    }
+}
