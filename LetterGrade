@@ -1,0 +1,66 @@
+package edu.umsl.is3806;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class lettergrade 
+{
+    public static void main (String args[]) throws IOException 
+    {
+        System.out.println("Please enter exam scores:");
+        BufferedReader br;
+        br = new BufferedReader( new InputStreamReader( System.in ) );
+        String myline = br.readLine();
+        StringTokenizer mytokenizer = new StringTokenizer(myline);
+        
+        int as = 0;                                                     //90-100
+        int bs = 0;                                                     //70-89
+        int cs = 0;                                                     //50-69
+        int ds = 0;                                                     //35-49
+        int fs = 0;                                                     //0-34
+       
+        while(mytokenizer.hasMoreTokens())                              //while there are more numbers
+        {
+            String temp = mytokenizer.nextToken();                      //temp = current number
+            int grade = Integer.valueOf(temp);                          //grade = temp's value
+            if(grade >= 90)                                             //if grade is 90 or above
+            {
+                as++;                                                   //add one more A
+                System.out.println(grade + " is an A");                 //print out grade value and grade letter
+            }
+            else if (grade >= 70)                                       //if grade is 70 or above
+            {
+                bs++;                                                   //add one more B
+                System.out.println(grade + " is a B");                  //print out grade value and grade letter
+            }
+            else if (grade >= 50)                                       //if grade is 50 or above
+            {
+                cs++;                                                   //add one more C
+                System.out.println(grade + " is a C");                  //print out grade value and grade letter
+            }
+            else if (grade >= 35)                                       //if grade is 35 or above
+            {
+                ds++;                                                   //add one more D
+                System.out.println(grade + " is a D");                  //print out grade value and grade letter
+            }
+            else                                                        //everything else
+            {
+                fs++;                                                   //add one more F
+                System.out.println(grade + " is a F");                  //print out grade value and grade letter
+            }
+        }
+        String possessivea = (as == 1) ? " A" : " As";                  //if only 1 A, singluar, otherwise plural
+        System.out.println("You got " + as + possessivea);              //Output how many As
+        String possessiveb = (bs == 1) ? " B" : " Bs";                  //if only 1 B, singluar, otherwise plural
+        System.out.println("You got " + bs + possessiveb);              //Output how many Bs
+        String possessivec = (cs == 1) ? " C" : " Cs";                  //if only 1 C, singluar, otherwise plural
+        System.out.println("You got " + cs + possessivec);              //Output how many Cs
+        String possessived = (ds == 1) ? " D" : " Ds";                  //if only 1 D, singluar, otherwise plural
+        System.out.println("You got " + ds + possessived);              //Output how many Ds
+        String possessivef = (fs == 1) ? " F" : " Fs";                  //if only 1 F, singluar, otherwise plural
+        System.out.println("You got " + fs + possessivef);              //Output how many Fs
+    }
+    
+}
