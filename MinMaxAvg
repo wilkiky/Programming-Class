@@ -1,0 +1,43 @@
+package edu.umsl.is3806;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class maxminavg 
+{
+    public static void main(String args[]) throws IOException 
+    {
+        System.out.println("Please enter a series of numbers:");
+        BufferedReader br;
+        br = new BufferedReader( new InputStreamReader( System.in ) );
+        String myline = br.readLine();
+        StringTokenizer tokens = new StringTokenizer(myline);
+        
+        int average;                                                    
+        int tokencount = tokens.countTokens();                          //how many numbers input by user
+        String first = tokens.nextToken();                              //pulls the user's first number as a string
+        int max = Integer.valueOf(first);                               //sets the first token's numarical value as max
+        int min = Integer.valueOf(first);                               //sets the first token's numarical value as min
+        int counter = Integer.valueOf(first);                           //takes the first token's numarical value and starts the running total
+        
+        while(tokens.hasMoreTokens())                                   //while there are more tokens
+        {
+            String temp = tokens.nextToken();                           //temporary vairable for each token
+            counter = counter + Integer.valueOf(temp);                  //adds new tokens value to running total
+            if(Integer.valueOf(temp) > max)                             //if new number is greater than max
+            {
+                max = Integer.valueOf(temp);                            //set new number as max
+            }
+            else if(Integer.valueOf(temp) < min)                        //if new number is less than min
+            {
+                min = Integer.valueOf(temp);                            //set new number as min
+            }
+        }
+        average = counter / tokencount;                                 //average = running total / how manu numbers entered in by user
+        System.out.println("The max is " + max);                        //output max
+        System.out.println("The min is " + min);                        //output min
+        System.out.println("The avergae is " + average);                //output average
+    }
+}
