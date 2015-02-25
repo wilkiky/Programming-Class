@@ -30,6 +30,7 @@ public class find12
                 if(counter == 1)                                        //if it's the first 12 found
                 {
                     first = tokencount - tokens.countTokens();          //subtract total numbers by how many left
+                    last = tokencount - tokens.countTokens();
                 }
                 else                                                    //for all other 12s found
                 {
@@ -39,6 +40,7 @@ public class find12
         }
         System.out.println("Your first 12 was entered in at " + first); //print out where the first 12 was
         System.out.println("Your last 12 was entered in at " + last);   //print out where the last 12 was
-        System.out.println("you have " + counter + " 12s");             //print out how many 12s found
+        String twelves = (counter == 1) ? " 12" : " 12s";               //twelves will be singluar or plural based on counter
+        System.out.println("You have " + counter + twelves);            //print out how many 12s with proper case
     }
 }
